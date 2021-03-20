@@ -1,0 +1,1 @@
+In contrast to input or change, the blur event occur when the input field is not on focus.
