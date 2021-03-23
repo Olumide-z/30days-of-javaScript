@@ -25,21 +25,15 @@ formContainer.addEventListener('submit', (e) => {
         console.log(isNaN(input.value))
         messages.push('Input must be a number')
     }
-
+    e.preventDefault()
     if(messages.length > 0){
-        e.preventDefault()
+        console.log(input.value)
         errElement.innerHTML = messages.join(', ')
     }
-})
 
-//errMessage style
-errElement.style.fontSize = '0.9rem'
-errElement.style.marginRight = '35%'
-errElement.style.color = 'red'
-
-//defaultNumbers
+    //defaultNumbers
 let defaultNumbers;
-for(let i = 0; i<= 50; i++){
+for(let i = 0; i<= input.value; i++){
     defaultNumbers = document.createElement('div')
     defaultNumbers.textContent = i
     document.body.appendChild(defaultNumbers)
@@ -56,3 +50,11 @@ for(let i = 0; i<= 50; i++){
         defaultNumbers.style.background = 'yellow'
     }
 }
+})
+
+
+//errMessage style
+errElement.style.fontSize = '0.9rem'
+errElement.style.marginRight = '35%'
+errElement.style.color = 'red'
+
