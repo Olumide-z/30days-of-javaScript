@@ -1,0 +1,71 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#header {
+    padding: 7%;
+    background-image: url('./images/globe-2.jpg');
+    background-size: cover;
+    text-align: center;
+}
+
+#header h1{
+    color: white;
+    font-size: 2.5rem;
+}
+
+#header p{
+    color: white;
+}
+
+#header button{
+    background-color: #b4aee8;
+    color: white;
+    padding: 1%;
+    margin-top: 3%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#header button:hover{
+    background-color: #440a67;
+}
+
+
+#header form{
+    margin-top: 10px;
+}
+
+#header form input{
+    padding: 10px;
+    border-radius: 25px;
+    width: 400px;
+    outline: none;
+    border: none;
+}
+
+#header form .icon{
+    color: white;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.divContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2%;
+    text-align: center;
+}
+
+.countriesTags{
+    background-image: url('./images/map_image.jpg');
+    background-size: cover;    
+    padding: 1%;
+    margin: 1%;
+     width: 10%;
+}
+

@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body{
+    color: white;
+    padding: 5% 7%;
+    background-color: #763857;
+}
+
+#head h1{
+    font-family: 'Averia Serif Libre', cursive;
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: 10px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 5s;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+
+#content #skills{
+    margin-top: 3%;
+    background-color: #bfb051;
+    padding: 2%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+
+#content #text{
+    font-family: 'Roboto', sans-serif;
+    margin-top: 2%;
+    line-height: 25px;
+}
+
+#content .grid{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5%;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+#content .grid .courses{
+    padding: 5%;
+}
+
+#content .grid .courses:hover{
+    background-color: #bfb051;
+}
+
+#footer {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 5%;
+}
+
+#footer #changing{
+    font-size: 2rem;
+    font-weight: 800;
+    animation: fadeOut 5s;
+}
+
+@keyframes fadeOut{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}

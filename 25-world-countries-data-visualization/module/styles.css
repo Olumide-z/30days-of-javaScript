@@ -74,7 +74,9 @@ body{
     transform: translate(12px, 12px);
   }
   
-#content2{
-    background-color: #f3f4ed;
-}
 
+
+.cd{
+  background-color: #f3f4ed;
+  padding: 5% 0 2% 0;
+}
