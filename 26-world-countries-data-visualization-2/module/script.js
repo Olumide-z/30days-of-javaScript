@@ -1,51 +1,63 @@
 import { countries } from "./countries_data.js";
 
-//getting all elements
-const paragraph = document.querySelector('#paragraph')
+// getting all elements
+const countriesList = document.querySelector('.countries-list')
 const startBtn = document.querySelector('#startBtn')
 const anyBtn = document.querySelector('#anyBtn')
 const switchBtn = document.querySelector('#switchBtn')
 const searchBox = document.querySelector('#searchBox')
-const buttons = document.querySelectorAll('button')
+const buttons = document.querySelectorAll('.action-btn')
+let mode = '', startingWords; // starting_word or search_with_any
 
 //displaying all countries
-const divContainer = document.createElement('div')
-divContainer.className = 'divContainer'
-let names;
-let pTags
-for(let i = 0; i < countries.length; i++){
-     names = countries[i].name
-     pTags = document.createElement('p')
-     divContainer.appendChild(pTags)
-     pTags.innerHTML = names
-     pTags.className = 'countriesTags'
-}
-document.body.appendChild(divContainer)
-
-//onclick btn
-for(let i = 0; i<buttons.length; i++){
-    buttons[i].addEventListener('click' , () => {
-        buttons[i].style.background = '#440a67'
-    })
+function displayCountries(countries) {
+  countriesList.innerHTML = "";
+  for (let i = 0; i < countries.length; i++) {
+    const country = document.createElement('p')
+    country.innerHTML = countries[i].name
+    country.className = 'countriesTags'
+    countriesList.appendChild(country)
+  }
 }
 
+//
+function filterCountries() {
+  const value = searchBox.value.toUpperCase();
 
-//starting word 
+  startingWords = countries.filter((country) => {
+    const countryName = country.name.toUpperCase();
+    if (mode === "starting_word") {
+      return countryName.startsWith(value)
+    } else if (mode === "search_with_any") {
+      return countryName.includes(value);
+    }
+  })
 
-searchBox.addEventListener('input', () => {
-    const value = searchBox.value.toUpperCase()
-    const startingWords = countries.filter((country) => 
-        country.name.startsWith(value)
-    )
-  
-    console.log(startingWords)
+  displayCountries(startingWords)
+}
+
+startBtn.addEventListener('click', () => {
+  mode = "starting_word"
 })
 
+anyBtn.addEventListener('click', () => {
+  mode = "search_with_any"
+})
 
+// onclick btn
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    buttons.forEach(button => button.style.background = "");
+    button.style.background = '#440a67';
+    //the countries get updated on the website when the other btn is chose
+    filterCountries()
+  })
+})
 
-//search with any word
+// starting word 
+searchBox.addEventListener('input', () => {
+  filterCountries();
+})
 
-//numbers of countries that starts with 
-
-
-
+startBtn.click();
+displayCountries(countries)
